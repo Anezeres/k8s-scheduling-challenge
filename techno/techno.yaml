@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: maximum-raver
+  namespace: techno
+spec:
+  containers:
+    - name: raver
+      image: nginx
+  tolerations:
+    - key: "music"
+      operator: "Equal"
+      value: "hard-groove"
+      effect: "NoSchedule"
