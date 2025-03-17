@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: perreador-maximo
+  namespace: reggaeton
+spec:
+  containers:
+    - name: reggaetonero
+      image: nginx
+  tolerations:
+    - key: "music"
+      operator: "Equal"
+      value: "perreo-intenso"
+      effect: "NoSchedule"
