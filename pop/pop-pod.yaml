@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pop-dancer
+  namespace: pop
+spec:
+  containers:
+    - name: pop-lover
+      image: nginx
+      annotations:
+        description: "Pop pod"
+        owner: "Juan Esteban Guerrero Camacho"
+        contact: "juan.esteban.guerrero@correounivalle.edu.co"
+  tolerations:
+    - key: "music"
+      operator: "Equal"
+      value: "pop-vibes"
+      effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: style
+                operator: "In"
+                values:
+                  - "pop"
