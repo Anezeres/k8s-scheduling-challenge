@@ -7,8 +7,21 @@ spec:
   containers:
   - name: salsa-lover
     image: nginx
+    annotations:
+      description: "Salsa pod"
+      owner: "Néstor David Heredia Gutierrez"
+      contact: "nestor.heredia@correounivalle.edu.co"
   tolerations:
   - key: "music"
     operator: "Equal"
     value: "sabor-latino"
     effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: style
+            operator: "In"
+            values:
+            - "latino"
