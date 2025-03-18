@@ -7,8 +7,21 @@ spec:
   containers:
     - name: raver
       image: nginx
+      annotations:
+        description: "Techno pod"
+        owner: "Juan Diego Urriago"
+        contact: "urriago.juan@correounivalle.edu.co"
   tolerations:
     - key: "music"
       operator: "Equal"
       value: "hard-groove"
       effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: style
+                operator: "In"
+                values: 
+                 - "electronico"
