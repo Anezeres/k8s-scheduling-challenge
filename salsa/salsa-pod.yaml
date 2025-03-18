@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: salsa-dancer
+  namespace: salsa
+spec:
+  containers:
+  - name: salsa-lover
+    image: nginx
+  tolerations:
+  - key: "music"
+    operator: "Equal"
+    value: "sabor-latino"
+    effect: "NoSchedule"
