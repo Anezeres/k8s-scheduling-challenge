@@ -3,6 +3,10 @@ kind: Pod
 metadata:
   name: perreador-maximo
   namespace: reggaeton
+  annotations:
+    description: "Reggaeton pod"
+    owner: "Daniel Arias Castrillon"
+    contact: "daniel.arias.castrillon@correounivalle.edu.co"
 spec:
   containers:
     - name: reggaetonero
@@ -12,3 +16,12 @@ spec:
       operator: "Equal"
       value: "perreo-intenso"
       effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: style
+                operator: In
+                values:
+                  - urbano
