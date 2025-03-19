@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: salsero-rikiti
+  namespace: salsa
+  anotations:
+    description: "salsa pod"
+    owner: "Deiby Muñoz"
+    contact: "deiby.munoz@correounivalle.edu.co"
+spec:
+  containers:
+    - name: deiby-en-salsa
+      image: nginx
+  tolerations:
+    - key: "music"
+      operator: "Equal"
+      value: "sabor-latino"
+      effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: style
+                operator: In
+                values:
+                  - latino
